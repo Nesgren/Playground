@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const PokemonCard = ({ name, url }) => {
@@ -14,8 +15,10 @@ const PokemonCard = ({ name, url }) => {
 
   return (
     <div className="pokemon-card">
-      <img src={pokemon.sprites.front_default} alt={name} />
-      <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+      <Link to={`/pokemon/${name}`}>
+        <img src={pokemon.sprites.front_default} alt={name} />
+        <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+      </Link>
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
       <p>Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>
