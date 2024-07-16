@@ -19,9 +19,10 @@ const Pagination = ({ currentPage, totalPages, paginate }) => {
       <ul className="pagination">
         <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
           <button onClick={handlePreviousPage} className="page-link" disabled={currentPage === 1}>
-            Anterior
+            &laquo; Anterior
           </button>
         </li>
+
         {pageNumbers.map(number => (
           <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
             <button onClick={() => paginate(number)} className="page-link">
@@ -29,9 +30,10 @@ const Pagination = ({ currentPage, totalPages, paginate }) => {
             </button>
           </li>
         ))}
+
         <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
           <button onClick={handleNextPage} className="page-link" disabled={currentPage === totalPages}>
-            Siguiente
+            Siguiente &raquo;
           </button>
         </li>
       </ul>

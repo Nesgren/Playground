@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFetchPokemons = (limit = 151) => {
+const useFetchPokemons = (limit = 500) => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
 

@@ -7,13 +7,14 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 100%;
   margin: 20px auto;
   padding: 20px;
   background-color: #333;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 
 h1 {
   text-align: center;
@@ -70,6 +71,7 @@ h1 {
   list-style: none;
   padding: 0;
   justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -81,7 +83,7 @@ h1 {
   background-color: #474b50;
   color: #fff;
   border: none;
-  padding: 8px 16px;
+  padding: 8px 12px;
   cursor: pointer;
   text-decoration: none;
   border-radius: 5px;
@@ -151,4 +153,35 @@ h1 {
   text-align: center;
   padding: 20px;
   color: #fff;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .pokemon-card {
+    padding: 10px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination li {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pokemon-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pokemon-card img {
+    width: 100px;
+    height: 100px;
+  }
 }
