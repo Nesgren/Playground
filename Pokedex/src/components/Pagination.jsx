@@ -1,38 +1,47 @@
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 
 const Pagination = ({ currentPage, totalPages, paginate }) => {
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = useMemo(() => {
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
 
-  const handlePreviousPage = () => {
-    if (currentPage > 1) paginate(currentPage - 1);
-  };
+    if (currentPage <= 3) {
+      endPage = Math.min(5, totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      startPage = Math.max(1, totalPages - 4);
+    }
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) paginate(currentPage + 1);
+    const pages = [];
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }, [currentPage, totalPages]);
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages && page !== currentPage) {
+      paginate(page);
+    }
   };
 
   return (
     <nav>
       <ul className="pagination">
         <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-          <button onClick={handlePreviousPage} className="page-link" disabled={currentPage === 1}>
+          <button onClick={() => handlePageChange(currentPage - 1)} className="page-link" disabled={currentPage === 1}>
             &laquo; Anterior
           </button>
         </li>
-
         {pageNumbers.map(number => (
           <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-            <button onClick={() => paginate(number)} className="page-link">
+            <button onClick={() => handlePageChange(number)} className="page-link">
               {number}
             </button>
           </li>
         ))}
-
         <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-          <button onClick={handleNextPage} className="page-link" disabled={currentPage === totalPages}>
+          <button onClick={() => handlePageChange(currentPage + 1)} className="page-link" disabled={currentPage === totalPages}>
             Siguiente &raquo;
           </button>
         </li>

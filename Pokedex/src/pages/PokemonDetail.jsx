@@ -20,7 +20,7 @@ const PokemonDetail = () => {
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
       <p>Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>
-      <p>Abilities: {pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
+      <p>Abilities: {pokemon.abilities.map(ability => ability.ability.name).join(' - ').toUpperCase()}</p>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const PokemonCard = ({ name, url }) => {
       </Link>
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
-      <p>Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>
+      <p>Type: {pokemon.types.map(type => type.type.name).join(' - ').toUpperCase()}</p>
     </div>
   );
 };
