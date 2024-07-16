@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #121212;
+  color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -17,9 +18,9 @@ body {
 }
 
 .pokemon-card {
-  background-color: white;
+  background-color: #1f1f1f;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin: 10px;
   padding: 20px;
   width: 150px;
@@ -42,6 +43,8 @@ body {
   margin-bottom: 20px;
   border: 2px solid #ccc;
   border-radius: 4px;
+  background-color: #333;
+  color: #fff;
 }
 
 .pagination {
@@ -56,20 +59,32 @@ body {
 }
 
 .page-link {
-  color: #333;
+  color: #fff;
   padding: 10px 15px;
   text-decoration: none;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 4px;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .page-link:hover {
-  background-color: #eee;
+  background-color: #444;
 }
 
 .page-item.active .page-link {
   background-color: #007bff;
   color: white;
   border: 1px solid #007bff;
+}
+
+.page-item.disabled .page-link {
+  cursor: not-allowed;
+  background-color: #555;
+  border-color: #555;
+}
+
+.pokemon-detail {
+  text-align: center;
+  padding: 20px;
 }
